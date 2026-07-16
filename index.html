@@ -9,13 +9,13 @@
     :root {
       color-scheme: dark;
       --background: #0a0c0e;
-      --surface: #101316;
-      --surface-raised: #14181b;
-      --text: #f3f5f4;
-      --muted: #949c99;
-      --accent: #19e6ad;
-      --border: rgba(255, 255, 255, 0.075);
-      --shadow: 0 32px 80px rgba(0, 0, 0, 0.32);
+      --surface: #101315;
+      --text: #d8dedb;
+      --heading: #f6f8f7;
+      --muted: #98a39e;
+      --accent: #00d99a;
+      --border: rgba(216, 222, 219, 0.09);
+      --shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
     }
 
     * {
@@ -31,75 +31,84 @@
       min-width: 320px;
       background: var(--background);
       color: var(--text);
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 15.5px;
-      line-height: 1.72;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 16.5px;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     main {
       width: min(820px, calc(100% - 40px));
-      margin: clamp(32px, 6vw, 72px) auto 0;
-      padding: clamp(32px, 7vw, 72px);
+      margin: clamp(24px, 5vw, 64px) auto 0;
+      padding: clamp(36px, 7vw, 72px);
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 28px;
+      border-radius: 24px;
       box-shadow: var(--shadow);
     }
 
     header {
-      padding-bottom: clamp(32px, 5vw, 48px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .brand {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: clamp(40px, 7vw, 64px);
+      align-items: center;
+      padding: clamp(12px, 2vw, 20px) 0 clamp(38px, 6vw, 54px);
+      text-align: center;
     }
 
     .brand-logo {
       display: block;
-      width: 58px;
-      height: 58px;
+      width: 100px;
+      height: 110px;
+      margin-bottom: clamp(28px, 4vw, 38px);
       object-fit: contain;
-    }
-
-    .brand-name {
-      font-size: 1.15rem;
-      font-weight: 650;
-      letter-spacing: -0.025em;
+      filter: drop-shadow(0 0 13px rgba(0, 217, 154, 0.16));
     }
 
     h1 {
-      max-width: 600px;
-      margin: 0 0 16px;
-      font-size: clamp(1.9rem, 4.2vw, 2.65rem);
-      font-weight: 630;
-      line-height: 1.12;
-      letter-spacing: -0.04em;
+      max-width: 640px;
+      margin: 0 0 14px;
+      color: var(--heading);
+      font-size: clamp(2.375rem, 5vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.14;
+      letter-spacing: -0.035em;
       text-wrap: balance;
     }
 
+    header::after {
+      width: 72px;
+      height: 1px;
+      margin-top: clamp(30px, 5vw, 42px);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 217, 154, 0.72),
+        transparent
+      );
+      content: "";
+    }
+
     h2 {
-      margin: 0 0 16px;
-      color: var(--text);
-      font-size: 1.18rem;
-      font-weight: 620;
-      line-height: 1.35;
-      letter-spacing: -0.022em;
+      margin: 0 0 18px;
+      color: var(--heading);
+      font-size: 1.25rem;
+      font-weight: 650;
+      line-height: 1.4;
+      letter-spacing: -0.018em;
       text-wrap: balance;
     }
 
     section {
-      padding-top: 36px;
+      padding-top: 40px;
     }
 
     p {
-      margin: 0 0 18px;
-      color: #c8cdcb;
+      margin: 0 0 20px;
+    }
+
+    header + p {
+      margin-top: 10px;
     }
 
     section > p:last-child {
@@ -107,13 +116,12 @@
     }
 
     ul {
-      margin: 4px 0 22px;
-      padding-left: 22px;
-      color: #c8cdcb;
+      margin: 6px 0 24px;
+      padding-left: 24px;
     }
 
     li {
-      padding-left: 5px;
+      padding-left: 6px;
     }
 
     li::marker {
@@ -127,32 +135,36 @@
     .effective-date {
       margin: 0;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.95rem;
     }
 
     .effective-date strong {
-      color: #b5bcb9;
-      font-weight: 550;
+      color: inherit;
+      font-weight: 500;
     }
 
     a {
       color: var(--accent);
-      text-decoration-color: rgba(25, 230, 173, 0.4);
+      text-decoration-color: rgba(0, 217, 154, 0.42);
       text-decoration-thickness: 1px;
       text-underline-offset: 4px;
-      transition: text-decoration-color 180ms ease;
+      overflow-wrap: anywhere;
     }
 
     a:hover {
       text-decoration-color: var(--accent);
     }
 
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
     .contact {
-      margin-top: 22px;
-      padding: 22px 24px;
-      background: var(--surface-raised);
-      border: 1px solid var(--border);
-      border-radius: 16px;
+      margin-top: 24px;
+      padding: 4px 0 4px 20px;
+      border-left: 1px solid rgba(0, 217, 154, 0.55);
     }
 
     .contact p {
@@ -166,11 +178,20 @@
     footer {
       width: min(820px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 28px 8px 40px;
-      color: #69716e;
-      font-size: 0.78rem;
+      padding: 28px 8px 38px;
+      color: #77817d;
+      font-size: 0.8rem;
       line-height: 1.7;
       text-align: center;
+    }
+
+    footer::before {
+      display: block;
+      width: 48px;
+      height: 1px;
+      margin: 0 auto 22px;
+      background: rgba(216, 222, 219, 0.11);
+      content: "";
     }
 
     footer span {
@@ -178,37 +199,58 @@
     }
 
     @media (max-width: 640px) {
+      body {
+        font-size: 16px;
+      }
+
       main {
         width: calc(100% - 24px);
         margin-top: 12px;
-        padding: 34px 24px 40px;
-        border-radius: 22px;
+        padding: 28px 22px 42px;
+        border-radius: 16px;
       }
 
-      .brand {
-        margin-bottom: 40px;
+      header {
+        padding-top: 8px;
+        padding-bottom: 36px;
       }
 
       .brand-logo {
-        width: 52px;
-        height: 52px;
+        width: 84px;
+        height: 92px;
+        margin-bottom: 26px;
       }
 
       h1 {
-        font-size: clamp(1.75rem, 8vw, 2.1rem);
+        font-size: clamp(1.8125rem, 8vw, 2.125rem);
+        line-height: 1.16;
       }
 
       h2 {
-        font-size: 1.12rem;
+        font-size: 1.16rem;
       }
 
       section {
-        padding-top: 32px;
+        padding-top: 36px;
       }
 
       footer {
         width: calc(100% - 24px);
-        padding-bottom: 28px;
+        padding: 24px 8px 28px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      main {
+        width: calc(100% - 16px);
+        margin-top: 8px;
+        padding-right: 18px;
+        padding-left: 18px;
+        border-radius: 14px;
+      }
+
+      h1 {
+        font-size: 1.8125rem;
       }
     }
 
@@ -216,25 +258,18 @@
       html {
         scroll-behavior: auto;
       }
-
-      a {
-        transition: none;
-      }
     }
   </style>
 </head>
 <body>
   <main>
     <header>
-      <div class="brand">
-        <img class="brand-logo" src="assets/branding/skiply_splash_logo.png" alt="Логотип Skiply" width="58" height="58">
-        <span class="brand-name">Skiply</span>
-      </div>
+      <img class="brand-logo" src="./assets/branding/skiply_splash_logo.png" alt="Skiply" width="100" height="110">
       <h1>Политика конфиденциальности</h1>
       <p class="effective-date"><strong>Дата вступления в силу:</strong> 16 июля 2026 года</p>
     </header>
 
-    <p style="margin-top: 28px;">Настоящая Политика конфиденциальности описывает порядок обработки и защиты данных в мобильном приложении <strong>Skiply</strong> (далее — «Приложение»), разработанном <strong>Astaffix</strong> (далее — «Разработчик»).</p>
+    <p>Настоящая Политика конфиденциальности описывает порядок обработки и защиты данных в мобильном приложении <strong>Skiply</strong> (далее — «Приложение»), разработанном <strong>Astaffix</strong> (далее — «Разработчик»).</p>
     <p>Используя Приложение, пользователь подтверждает, что ознакомился с настоящей Политикой. Если пользователь не согласен с ее условиями, ему следует прекратить использование Приложения.</p>
 
     <section>
@@ -338,7 +373,7 @@
   </main>
   <footer>
     <span>© 2026 Skiply</span>
-    <span>Developed by Astaffix</span>
+    <span>Разработано Astaffix</span>
   </footer>
 </body>
 </html>
