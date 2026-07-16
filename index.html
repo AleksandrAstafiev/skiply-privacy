@@ -52,6 +52,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-right: -24px;
+      margin-left: -24px;
       padding: clamp(12px, 2vw, 20px) 0 clamp(38px, 6vw, 54px);
       text-align: center;
     }
@@ -69,7 +71,7 @@
       max-width: 640px;
       margin: 0 0 14px;
       color: var(--heading);
-      font-size: clamp(2.375rem, 5vw, 2.75rem);
+      font-size: clamp(2.375rem, 4vw, 2.625rem);
       font-weight: 700;
       line-height: 1.14;
       letter-spacing: -0.035em;
@@ -198,6 +200,13 @@
       display: block;
     }
 
+    @media (min-width: 641px) {
+      h1 {
+        max-width: none;
+        white-space: nowrap;
+      }
+    }
+
     @media (max-width: 640px) {
       body {
         font-size: 16px;
@@ -211,6 +220,8 @@
       }
 
       header {
+        margin-right: 0;
+        margin-left: 0;
         padding-top: 8px;
         padding-bottom: 36px;
       }
